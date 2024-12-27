@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老子打地鼠</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="intro-page" class="centered">
+        <h1>老子打地鼠</h1>
+        <label for="player-name">你的名字是：</label>
+        <input type="text" id="player-name" placeholder="请输入你的名字" required>
+        <br><br>
+        <label for="adjective">____的梁一凡：</label>
+        <input type="text" id="adjective" placeholder="请输入一个定语" required>
+        <br><br>
+        <button id="start-button">开始游戏</button>
+    </div>
+    
+    <div id="game-page" class="hidden">
+        <h2>不好意思我做不出地洞的效果你凑合看吧！</h2>
+        <div id="game-area">
+            <div class="hole" id="hole1"></div>
+            <div class="hole" id="hole2"></div>
+            <div class="hole" id="hole3"></div>
+            <div class="hole" id="hole4"></div>
+            <div class="hole" id="hole5"></div>
+            <div class="hole" id="hole6"></div>
+        </div>
+        <div id="score-board">得分：<span id="score">0</span></div>
+        <div id="timer">剩余时间：<span id="time-left">30</span> 秒</div>
+        <div id="hammer"></div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

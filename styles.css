@@ -1,0 +1,231 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('shouye.jpg'); /* 替换为实际首页背景图 */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #000000;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    position: absolute;
+    top: 50px; /* 设置距离顶部的间距 */
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 保证水平完全居中 */
+    color: black; /* 黑色文字 */
+    font-size: 8em; /* 字体大小 */
+    font-weight: bold; /* 加粗字体 */
+    margin: 0; /* 移除默认外边距 */
+    z-index: 10; /* 确保显示在其他元素上方 */
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.7); /* 添加轻微阴影 */
+}
+h2 {
+    position: absolute;
+    top: 10px; /* 设置距离顶部的间距 */
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 保证水平完全居中 */
+    color: rgb(71, 81, 117); /* 黑色文字 */
+    font-size: 2em; /* 字体大小 */
+    font-weight: bold; /* 加粗字体 */
+    margin: 0; /* 移除默认外边距 */
+    z-index: 10; /* 确保显示在其他元素上方 */
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.7); /* 添加轻微阴影 */
+}
+@keyframes title-glow {
+    from {
+        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        text-shadow: 2px 2px 20px rgba(255, 255, 255, 1);
+    }
+}
+.message {
+    position: absolute;
+    top: -20px; /* 调整为地鼠上方显示 */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1em;
+    font-weight: bold;
+    color: red; /* 默认消息颜色 */
+    opacity: 0; /* 初始隐藏 */
+    transition: opacity 0.5s ease; /* 添加渐变动画 */
+}
+
+input[type="text"] {
+    font-size: 1.5em;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    outline: none;
+    margin: 10px 0;
+    width: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"]:hover, input[type="text"]:focus {
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
+}
+
+#start-button {
+    font-size: 1.8em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff5722;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#start-button:hover {
+    background-color: #e64a19;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+#game-area {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 60px auto 20px auto; /* 确保和顶部文字不重合 */
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.hole {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-image: url('hole.png'); /* 替换为实际地鼠洞图片 */
+    background-size: cover;
+}
+
+#hole1 { top: 50px; left: 50px; }
+#hole2 { top: 50px; left: 250px; }
+#hole3 { top: 50px; left: 450px; }
+#hole4 { top: 250px; left: 50px; }
+#hole5 { top: 250px; left: 250px; }
+#hole6 { top: 250px; left: 450px; }
+
+.mole {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-image: url('地鼠.png'); /* 替换为实际地鼠图片 */
+    background-size: cover;
+    cursor: pointer;
+    text-align: center;
+    line-height: 120px;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap; /* 确保文字不换行 */
+}
+
+#hammer {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('锤子.png'); /* 替换为实际锤子图片 */
+    background-size: cover;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.7);
+}
+
+#hammer::after {
+    position: absolute;
+    top: 110%;
+}
+
+#end-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ff5722;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: popup-bounce 0.5s ease;
+}
+
+.popup-content {
+    display: flex; /* 使用flex布局 */
+    flex-direction: column; /* 垂直排列内容 */
+    align-items: center; /* 水平居中内容 */
+    justify-content: space-between; /* 自动拉开子元素间距 */
+    gap: 20px; /* 全局设置子元素之间的间距 */
+}
+
+.popup-content h3 {
+    font-size: 2.5em;
+    color: #ff5722;
+    margin: 0; /* 移除默认外边距，使用gap控制间距 */
+}
+
+.popup-content p {
+    font-size: 1.5em;
+    color: #000;
+    margin: 0; /* 移除默认外边距，使用gap控制间距 */
+    text-align: center; /* 确保文字居中 */
+}
+
+.popup-content button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff5722;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+@keyframes popup-bounce {
+    from {
+        transform: translate(-50%, -60%) scale(0.9);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+#score-board, #timer {
+    font-size: 1.5em;
+    margin: 10px;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
